@@ -103,6 +103,88 @@
   font-weight: 500;
 }
 
+/* ===== 校园公告 Swiper ===== */
+.notice-swiper {
+  height: 220rpx; /* 调整高度以适应内容 */
+  margin-bottom: 12rpx;
+}
+
+.notice-swiper-item {
+  padding-right: 20rpx; /* 卡片间距 */
+  box-sizing: border-box;
+}
+
+.notice-card {
+  background: var(--bg-card);
+  padding: 32rpx;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰 */
+.notice-card::after {
+  content: '';
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: var(--primary-light);
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(20px);
+}
+
+.notice-tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-sm);
+  font-size: 20rpx;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.tag-urgent { background: #FEF2F2; color: var(--danger); }
+.tag-normal { background: #F1F5F9; color: var(--text-500); }
+
+.notice-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-900);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.notice-footer {
+  margin-top: 16rpx;
+  align-items: center;
+}
+
+.notice-date {
+  font-size: 22rpx;
+  color: var(--text-300);
+}
+
+.notice-btn {
+  width: 80rpx;
+  height: 48rpx;
+  background: var(--text-900);
+  border-radius: var(--radius-full);
+}
+
 /* ===== 今日课程卡片 ===== */
 .section-header {
   display: flex;
