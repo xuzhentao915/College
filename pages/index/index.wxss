@@ -1,5 +1,16 @@
-.home-container {
-  padding-bottom: 40rpx;
+.index-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.home-scroll-area {
+  flex: 1;
+  width: 100%;
+  height: 0;
 }
 
 /* ===== 顶部英雄区 ===== */
@@ -105,12 +116,12 @@
 
 /* ===== 校园公告 Swiper ===== */
 .notice-swiper {
-  height: 220rpx; /* 调整高度以适应内容 */
+  height: 220rpx;
   margin-bottom: 12rpx;
 }
 
 .notice-swiper-item {
-  padding-right: 20rpx; /* 卡片间距 */
+  padding-right: 20rpx;
   box-sizing: border-box;
 }
 
@@ -129,7 +140,6 @@
   overflow: hidden;
 }
 
-/* 背景装饰 */
 .notice-card::after {
   content: '';
   position: absolute;

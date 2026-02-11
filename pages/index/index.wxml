@@ -1,131 +1,134 @@
-<view class="page-container home-container">
-  <!-- 动态顶部适配 -->
-  <view style="height: {{navHeight}}px; width: 100%;"></view>
-  
-  <!-- ===== 顶部英雄区 ===== -->
-  <view class="hero-section">
-    <view class="hero-content">
-      <view class="hero-greeting">
-        <text class="greeting-label font-num">{{currentDate}}</text>
-        <view class="greeting-main">
-          <text class="greeting-text">{{greeting}}</text>
-          <text class="greeting-name">同学</text>
-        </view>
-      </view>
-      <view class="hero-avatar flex-center">
-        <text class="avatar-text">李</text>
-      </view>
-    </view>
-  </view>
+<view class="page-container index-page">
+  <!-- 动态顶部适配 (固定) -->
+  <view style="height: {{navHeight}}px; width: 100%; flex-shrink: 0;"></view>
 
-  <!-- ===== 状态看板 ===== -->
-  <view class="status-grid">
-    <view class="status-card" bindtap="navigateTo" data-url="/pages/grade/grade">
-      <text class="status-label">当前绩点</text>
-      <view>
-        <text class="status-value font-num">3.82</text>
-        <text class="status-unit">GPA</text>
+  <scroll-view scroll-y class="home-scroll-area" enhanced show-scrollbar="{{false}}">
+    <!-- ===== 顶部英雄区 ===== -->
+    <view class="hero-section">
+      <view class="hero-content">
+        <view class="hero-greeting">
+          <text class="greeting-label font-num">{{currentDate}}</text>
+          <view class="greeting-main">
+            <text class="greeting-text">{{greeting}}</text>
+            <text class="greeting-name">同学</text>
+          </view>
+        </view>
+        <view class="hero-avatar flex-center">
+          <text class="avatar-text">李</text>
+        </view>
       </view>
     </view>
-    <view class="status-card">
-      <text class="status-label">本周课程</text>
-      <view>
-        <text class="status-value font-num">12</text>
-        <text class="status-unit">节</text>
-      </view>
-    </view>
-  </view>
 
-  <!-- ===== 考试倒计时 ===== -->
-  <view style="margin-top: 32rpx;">
-    <exam-countdown examData="{{examList}}"></exam-countdown>
-  </view>
+    <!-- ===== 状态看板 ===== -->
+    <view class="status-grid">
+      <view class="status-card" bindtap="navigateTo" data-url="/pages/grade/grade">
+        <text class="status-label">当前绩点</text>
+        <view>
+          <text class="status-value font-num">3.82</text>
+          <text class="status-unit">GPA</text>
+        </view>
+      </view>
+      <view class="status-card">
+        <text class="status-label">本周课程</text>
+        <view>
+          <text class="status-value font-num">12</text>
+          <text class="status-unit">节</text>
+        </view>
+      </view>
+    </view>
 
-  <!-- ===== 快捷入口 ===== -->
-  <view class="quick-actions">
-    <view class="action-item" bindtap="navigateTo" data-url="/pages/schedule/schedule">
-      <view class="action-icon-wrap">
-        <view class="action-icon" style="background: #E0F2FE;">
-          <image src="/images/tabbar/schedule_active.png" style="width: 48rpx; height: 48rpx;"></image>
-        </view>
-      </view>
-      <text class="action-label">课表</text>
+    <!-- ===== 考试倒计时 ===== -->
+    <view style="margin-top: 32rpx;">
+      <exam-countdown examData="{{examList}}"></exam-countdown>
     </view>
-    <view class="action-item" bindtap="navigateTo" data-url="/pages/grade/grade">
-      <view class="action-icon-wrap">
-        <view class="action-icon" style="background: #FEE2E2;">
-          <image src="/images/tabbar/grade_active.png" style="width: 48rpx; height: 48rpx;"></image>
-        </view>
-      </view>
-      <text class="action-label">成绩</text>
-    </view>
-    <view class="action-item">
-      <view class="action-icon-wrap">
-        <view class="action-icon" style="background: #F0FDF4;">
-          <image src="/images/tabbar/exam_active.png" style="width: 48rpx; height: 48rpx;"></image>
-        </view>
-      </view>
-      <text class="action-label">考试</text>
-    </view>
-    <view class="action-item">
-      <view class="action-icon-wrap">
-        <view class="action-icon" style="background: #FAF5FF;">
-          <image src="/images/tabbar/more_active.png" style="width: 48rpx; height: 48rpx;"></image>
-        </view>
-      </view>
-      <text class="action-label">更多</text>
-    </view>
-  </view>
 
-  <!-- ===== 校园公告 (Swiper 轮播) ===== -->
-  <view class="section-header" style="margin-top: 48rpx;">
-    <text class="title-text">最新公告</text>
-    <text class="title-action">更多</text>
-  </view>
-
-  <swiper class="notice-swiper" previous-margin="0" next-margin="40rpx" autoplay interval="5000" circular>
-    <swiper-item wx:for="{{notices}}" wx:key="id" class="notice-swiper-item">
-      <view class="notice-card">
-        <view class="notice-tag {{index === 0 ? 'tag-urgent' : 'tag-normal'}}">
-          {{index === 0 ? '重要' : '通知'}}
+    <!-- ===== 快捷入口 ===== -->
+    <view class="quick-actions">
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/schedule/schedule">
+        <view class="action-icon-wrap">
+          <view class="action-icon" style="background: #E0F2FE;">
+            <image src="/images/tabbar/schedule_active.png" style="width: 48rpx; height: 48rpx;"></image>
+          </view>
         </view>
-        <text class="notice-title">{{item.title}}</text>
-        <view class="notice-footer flex-row justify-between">
-          <text class="notice-date font-num">{{item.date}}</text>
-          <view class="notice-btn flex-center">
-            <text class="text-xs font-bold" style="color: white;">查看</text>
+        <text class="action-label">课表</text>
+      </view>
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/grade/grade">
+        <view class="action-icon-wrap">
+          <view class="action-icon" style="background: #FEE2E2;">
+            <image src="/images/tabbar/grade_active.png" style="width: 48rpx; height: 48rpx;"></image>
+          </view>
+        </view>
+        <text class="action-label">成绩</text>
+      </view>
+      <view class="action-item">
+        <view class="action-icon-wrap">
+          <view class="action-icon" style="background: #F0FDF4;">
+            <image src="/images/tabbar/exam_active.png" style="width: 48rpx; height: 48rpx;"></image>
+          </view>
+        </view>
+        <text class="action-label">考试</text>
+      </view>
+      <view class="action-item">
+        <view class="action-icon-wrap">
+          <view class="action-icon" style="background: #FAF5FF;">
+            <image src="/images/tabbar/more_active.png" style="width: 48rpx; height: 48rpx;"></image>
+          </view>
+        </view>
+        <text class="action-label">更多</text>
+      </view>
+    </view>
+
+    <!-- ===== 校园公告 (Swiper 轮播) ===== -->
+    <view class="section-header" style="margin-top: 48rpx;">
+      <text class="title-text">最新公告</text>
+      <text class="title-action">更多</text>
+    </view>
+
+    <swiper class="notice-swiper" previous-margin="0" next-margin="40rpx" autoplay interval="5000" circular>
+      <swiper-item wx:for="{{notices}}" wx:key="id" class="notice-swiper-item">
+        <view class="notice-card">
+          <view class="notice-tag {{index === 0 ? 'tag-urgent' : 'tag-normal'}}">
+            {{index === 0 ? '重要' : '通知'}}
+          </view>
+          <text class="notice-title">{{item.title}}</text>
+          <view class="notice-footer flex-row justify-between">
+            <text class="notice-date font-num">{{item.date}}</text>
+            <view class="notice-btn flex-center">
+              <text class="text-xs font-bold" style="color: white;">查看</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <!-- ===== 今日课程 ===== -->
+    <view class="section-header">
+      <text class="title-text">今日课程</text>
+      <text class="title-action" bindtap="navigateTo" data-url="/pages/schedule/schedule">全部课表</text>
+    </view>
+    
+    <view wx:if="{{todayCourses.length > 0}}" class="today-courses">
+      <view class="course-card" wx:for="{{todayCourses}}" wx:key="id" style="border-left-color: {{index % 2 === 0 ? 'var(--primary)' : 'var(--accent)'}}">
+        <view class="course-time-box">
+          <text class="time-start font-num">{{item.time}}</text>
+          <text class="time-label">START</text>
+        </view>
+        <view class="course-info">
+          <text class="course-name">{{item.name}}</text>
+          <view class="course-meta">
+            <text>📍 {{item.room}}</text>
+            <text>•</text>
+            <text>第 {{index + 1}} 大节</text>
           </view>
         </view>
       </view>
-    </swiper-item>
-  </swiper>
-
-  <!-- ===== 今日课程 ===== -->
-  <view class="section-header">
-    <text class="title-text">今日课程</text>
-    <text class="title-action" bindtap="navigateTo" data-url="/pages/schedule/schedule">全部课表</text>
-  </view>
-  
-  <view wx:if="{{todayCourses.length > 0}}" class="today-courses">
-    <view class="course-card" wx:for="{{todayCourses}}" wx:key="id" style="border-left-color: {{index % 2 === 0 ? 'var(--primary)' : 'var(--accent)'}}">
-      <view class="course-time-box">
-        <text class="time-start font-num">{{item.time}}</text>
-        <text class="time-label">START</text>
-      </view>
-      <view class="course-info">
-        <text class="course-name">{{item.name}}</text>
-        <view class="course-meta">
-          <text>📍 {{item.room}}</text>
-          <text>•</text>
-          <text>第 {{index + 1}} 大节</text>
-        </view>
-      </view>
     </view>
-  </view>
-  <view wx:else class="empty-box flex-col flex-center" style="padding: 60rpx 0;">
-    <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23CBD5E1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z'/%3E%3C/svg%3E" style="width: 120rpx; height: 120rpx; margin-bottom: 24rpx;"></image>
-    <text class="text-sm" style="color: var(--text-300);">今天暂时没有课程安排</text>
-  </view>
+    <view wx:else class="empty-box flex-col flex-center" style="padding: 60rpx 0;">
+      <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23CBD5E1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z'/%3E%3C/svg%3E" style="width: 120rpx; height: 120rpx; margin-bottom: 24rpx;"></image>
+      <text class="text-sm" style="color: var(--text-300);">今天暂时没有课程安排</text>
+    </view>
 
-  <view style="height: 60rpx;"></view>
+    <!-- 底部留白 -->
+    <view style="height: 60rpx;"></view>
+  </scroll-view>
 </view>
