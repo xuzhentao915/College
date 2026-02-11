@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "card": "/components/card/card"
+    "exam-countdown": "/components/exam-countdown/exam-countdown"
   },
-  "navigationBarTitleText": "首页",
   "navigationStyle": "custom"
 }

@@ -1,0 +1,28 @@
+<view class="countdown-card">
+  <view class="card-header flex-row justify-between">
+    <view class="flex-row gap-8">
+      <image class="exam-icon" src="/images/tabbar/exam_active.png"></image>
+      <text class="title-text">考试倒计时</text>
+    </view>
+    <text class="exam-count font-num">{{exams.length}} 场</text>
+  </view>
+
+  <view class="exam-list">
+    <view class="exam-item" wx:for="{{exams}}" wx:key="name">
+      <view class="exam-info flex-row justify-between">
+        <view class="flex-col">
+          <text class="exam-name">{{item.name}}</text>
+          <text class="exam-date font-num">{{item.date}} · {{item.room}}</text>
+        </view>
+        <view class="days-box flex-col">
+          <text class="days-num font-num {{item.days <= 3 ? 'text-danger' : ''}}">{{item.days}}</text>
+          <text class="days-label">DAYS</text>
+        </view>
+      </view>
+      <!-- 进度条 -->
+      <view class="progress-bg">
+        <view class="progress-inner" style="width: {{item.progress}}%; background: {{item.days <= 3 ? 'var(--danger)' : 'var(--primary)'}}"></view>
+      </view>
+    </view>
+  </view>
+</view>

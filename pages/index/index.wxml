@@ -36,6 +36,11 @@
     </view>
   </view>
 
+  <!-- ===== 考试倒计时 ===== -->
+  <view style="margin-top: 32rpx;">
+    <exam-countdown examData="{{examList}}"></exam-countdown>
+  </view>
+
   <!-- ===== 快捷入口 ===== -->
   <view class="quick-actions">
     <view class="action-item" bindtap="navigateTo" data-url="/pages/schedule/schedule">
