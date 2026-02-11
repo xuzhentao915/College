@@ -1,8 +1,29 @@
 .grade-page {
-  padding-bottom: 60rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 32rpx; /* 将 padding 移动到这里 */
+  box-sizing: border-box;
+  overflow: hidden; /* 禁用外层滚动 */
+}
+
+.grade-scroll-area {
+  flex: 1;
+  width: 100%;
+  height: 0; /* 必须设置 height: 0 或 flex: 1 以在 flex 容器中正确工作 */
+}
+
+/* 移除原有的内间距，因为由外层 container 处理了 */
+.page-container {
+  padding: 0;
 }
 
 /* ===== GPA 英雄卡片 ===== */
+.gpa-hero-wrap {
+  padding-top: 20rpx;
+  padding-bottom: 48rpx;
+}
+
 .gpa-hero {
   background: var(--primary-gradient);
   padding: 60rpx 40rpx;
@@ -10,7 +31,6 @@
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-primary);
-  margin-bottom: 48rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +42,7 @@
   border-radius: var(--radius-full);
   backdrop-filter: blur(10px);
   margin-bottom: 40rpx;
+  z-index: 2;
 }
 
 .picker-inner {
@@ -32,7 +53,7 @@
 
 .gpa-display {
   text-align: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .gpa-number {
@@ -56,6 +77,7 @@
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  z-index: 1;
 }
 
 .gpa-deco-1 {
@@ -87,11 +109,6 @@
   align-items: center;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-light);
-  transition: all 0.2s ease;
-}
-
-.grade-card:active {
-  transform: scale(0.98);
 }
 
 .gc-left {
@@ -124,12 +141,6 @@
 .gc-credit {
   font-size: 22rpx;
   color: var(--text-300);
-}
-
-.gc-right {
-  display: flex;
-  align-items: center;
-  gap: 24rpx;
 }
 
 .score-box {
