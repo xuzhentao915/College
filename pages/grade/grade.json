@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "card": "/components/card/card"
+    },
+    "navigationBarTitleText": "成绩",
+    "navigationStyle": "custom"
+}

@@ -1,0 +1,144 @@
+/* pages/grade/grade.wxss */
+
+.grade-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+/* ===== GPA 英雄区 ===== */
+.gpa-hero {
+  background: var(--accent-gradient);
+  padding: 160rpx var(--spacing-md) 80rpx;
+  border-bottom-left-radius: 60rpx;
+  border-bottom-right-radius: 60rpx;
+  position: relative;
+  overflow: hidden;
+  /* 柔和的底部投影 */
+  box-shadow: 0 20rpx 60rpx rgba(102, 126, 234, 0.3);
+}
+
+/* 学期选择器 */
+.semester-pill {
+  position: absolute;
+  top: 90rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 10rpx 28rpx;
+  border-radius: var(--radius-full);
+  border: 1rpx solid rgba(255, 255, 255, 0.25);
+}
+
+.picker-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6rpx solid transparent;
+  border-right: 6rpx solid transparent;
+  border-top: 8rpx solid rgba(255, 255, 255, 0.8);
+}
+
+/* GPA 数字 */
+.gpa-display {
+  position: relative;
+  z-index: 2;
+}
+
+.gpa-number {
+  font-size: 120rpx;
+  font-weight: 800;
+  color: var(--true-white);
+  line-height: 1;
+  letter-spacing: 4rpx;
+  margin-bottom: 8rpx;
+  /* 微妙的文字阴影 */
+  text-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 装饰元素 */
+.gpa-deco {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.gpa-deco-1 {
+  width: 300rpx;
+  height: 300rpx;
+  top: -80rpx;
+  right: -60rpx;
+}
+
+.gpa-deco-2 {
+  width: 200rpx;
+  height: 200rpx;
+  bottom: -40rpx;
+  left: -40rpx;
+}
+
+/* ===== 成绩区 ===== */
+.grade-body {
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 成绩卡片 */
+.grade-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neu-shadow-out);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  border: 1rpx solid rgba(255, 255, 255, 0.35);
+}
+
+.gc-left {
+  flex: 1;
+}
+
+.gc-tags {
+  align-items: center;
+}
+
+.gc-tag {
+  font-size: 20rpx;
+  color: var(--primary-color);
+  background: rgba(91, 140, 255, 0.1);
+  padding: 4rpx 14rpx;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+/* 分数圆形 Badge */
+.score-circle {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+}
+
+.score-high {
+  background: rgba(82, 196, 26, 0.1);
+  color: var(--success-color);
+  box-shadow: inset 0 0 0 3rpx rgba(82, 196, 26, 0.2);
+}
+
+.score-mid {
+  background: rgba(91, 140, 255, 0.1);
+  color: var(--primary-color);
+  box-shadow: inset 0 0 0 3rpx rgba(91, 140, 255, 0.2);
+}
+
+.score-low {
+  background: rgba(255, 77, 79, 0.1);
+  color: var(--danger-color);
+  box-shadow: inset 0 0 0 3rpx rgba(255, 77, 79, 0.2);
+}

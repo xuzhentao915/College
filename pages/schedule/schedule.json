@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "card": "/components/card/card"
+    },
+    "navigationBarTitleText": "课表",
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom"
+}

@@ -1,0 +1,108 @@
+page {
+  /* ===== 色彩体系 - 新拟态精致版 ===== */
+  --primary-color: #5B8CFF;
+  --primary-light: #8CB4FF;
+  --primary-gradient: linear-gradient(135deg, #8CB4FF 0%, #5B8CFF 100%);
+  --accent-gradient: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+  --success-color: #52C41A;
+  --warning-color: #FAAD14;
+  --danger-color: #FF4D4F;
+
+  /* 文字色彩 */
+  --text-main: #1A2233;
+  --text-regular: #4A5568;
+  --text-secondary: #8E99A4;
+  --text-hint: #B8C0CC;
+
+  /* 新拟态底色 */
+  --bg-color: #E4EAF0;
+  --bg-light: #ECF0F5;
+  --true-white: #FFFFFF;
+
+  /* 分割线 */
+  --divider-color: rgba(163, 177, 198, 0.12);
+
+  /* 间距 */
+  --spacing-xs: 12rpx;
+  --spacing-sm: 20rpx;
+  --spacing-md: 32rpx;
+  --spacing-lg: 48rpx;
+  --spacing-xl: 64rpx;
+
+  /* 圆角 */
+  --radius-xs: 12rpx;
+  --radius-sm: 16rpx;
+  --radius-md: 24rpx;
+  --radius-lg: 36rpx;
+  --radius-xl: 48rpx;
+  --radius-full: 9999rpx;
+
+  /* ===== 新拟态阴影体系 ===== */
+  --neu-shadow-out:
+    10rpx 10rpx 20rpx rgba(163, 177, 198, 0.5),
+    -10rpx -10rpx 20rpx rgba(255, 255, 255, 0.75);
+
+  --neu-shadow-in:
+    inset 8rpx 8rpx 16rpx rgba(163, 177, 198, 0.45),
+    inset -8rpx -8rpx 16rpx rgba(255, 255, 255, 0.75);
+
+  --neu-shadow-sm:
+    5rpx 5rpx 10rpx rgba(163, 177, 198, 0.4),
+    -5rpx -5rpx 10rpx rgba(255, 255, 255, 0.75);
+
+  --neu-shadow-lg:
+    16rpx 16rpx 32rpx rgba(163, 177, 198, 0.5),
+    -16rpx -16rpx 32rpx rgba(255, 255, 255, 0.75);
+
+  /* 悬浮阴影 - 用于特殊强调元素 */
+  --neu-shadow-float:
+    0 20rpx 40rpx rgba(91, 140, 255, 0.15),
+    10rpx 10rpx 20rpx rgba(163, 177, 198, 0.3),
+    -10rpx -10rpx 20rpx rgba(255, 255, 255, 0.75);
+
+  background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Helvetica Neue', Helvetica, 'Microsoft Yahei', sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 容器 ===== */
+.container {
+  padding: var(--spacing-md);
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* ===== 文字工具类 ===== */
+.text-primary { color: var(--primary-color); }
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-danger { color: var(--danger-color); }
+.text-main { color: var(--text-main); }
+.text-regular { color: var(--text-regular); }
+.text-secondary { color: var(--text-secondary); }
+.text-hint { color: var(--text-hint); }
+.text-white { color: var(--true-white); }
+
+.font-num { font-family: 'DIN Alternate', 'Roboto Mono', 'SF Mono', monospace; letter-spacing: 1rpx; }
+.font-bold { font-weight: 600; }
+.font-xl { font-size: 44rpx; }
+.font-lg { font-size: 34rpx; }
+.font-md { font-size: 28rpx; }
+.font-sm { font-size: 24rpx; }
+.font-xs { font-size: 20rpx; }
+
+/* ===== 布局工具类 ===== */
+.flex-row { display: flex; flex-direction: row; align-items: center; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.flex-1 { flex: 1; }
+.flex-wrap { flex-wrap: wrap; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.align-start { align-items: flex-start; }
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }

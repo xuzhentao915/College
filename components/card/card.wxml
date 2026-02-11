@@ -1,0 +1,9 @@
+<view class="card {{hover ? 'card-hover' : ''}} {{padding ? 'card-padding' : ''}}">
+  <view class="card-header" wx:if="{{title}}">
+    <text class="card-title">{{title}}</text>
+    <slot name="header-right"></slot>
+  </view>
+  <view class="card-content">
+    <slot></slot>
+  </view>
+</view>

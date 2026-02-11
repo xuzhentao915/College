@@ -1,0 +1,46 @@
+<view class="grade-page">
+  <!-- ===== GPA 头部卡片 ===== -->
+  <view class="gpa-hero">
+    <!-- 选择学期 -->
+    <view class="semester-pill">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{semesters}}">
+        <view class="picker-inner flex-row flex-center gap-xs">
+          <text class="font-xs text-white" style="opacity: 0.9;">{{semesters[index]}}</text>
+          <view class="picker-arrow"></view>
+        </view>
+      </picker>
+    </view>
+    <!-- GPA 数值 -->
+    <view class="gpa-display flex-col flex-center">
+      <text class="gpa-number font-num">{{gpa}}</text>
+      <text class="gpa-sub font-xs" style="opacity: 0.7; color: white;">学期绩点 (GPA)</text>
+    </view>
+    <!-- 装饰 -->
+    <view class="gpa-deco gpa-deco-1"></view>
+    <view class="gpa-deco gpa-deco-2"></view>
+  </view>
+
+  <!-- ===== 成绩列表 ===== -->
+  <view class="grade-body">
+    <view class="section-title" style="padding: 0 var(--spacing-xs); margin-bottom: var(--spacing-sm);">
+      <text class="font-md font-bold text-main">课程成绩</text>
+      <text class="font-xs text-hint">共 {{grades.length}} 门</text>
+    </view>
+
+    <view class="grade-card" wx:for="{{grades}}" wx:key="id">
+      <view class="gc-left flex-col">
+        <text class="gc-name font-md font-bold text-main">{{item.name}}</text>
+        <view class="gc-tags flex-row gap-xs" style="margin-top: 8rpx;">
+          <view class="gc-tag">{{item.type}}</view>
+          <text class="font-xs text-hint">{{item.credit}} 学分</text>
+        </view>
+      </view>
+      <view class="gc-right flex-col" style="align-items: flex-end;">
+        <view class="score-circle flex-center {{item.score >= 90 ? 'score-high' : (item.score < 60 ? 'score-low' : 'score-mid')}}">
+          <text class="font-num font-bold">{{item.score}}</text>
+        </view>
+        <text class="font-num font-xs text-hint" style="margin-top: 8rpx;">绩点 {{item.point}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<view class="container schedule-container">
+  <!-- ===== 星期选择器 (Fixed) ===== -->
+  <view class="week-bar">
+    <view
+      class="week-item {{selectedDay === index ? 'week-active' : ''}}"
+      wx:for="{{weekDays}}"
+      wx:key="*this"
+      bindtap="selectDay"
+      data-index="{{index}}">
+      <text class="week-label">{{item}}</text>
+      <view class="week-dot" wx:if="{{courses[index] && courses[index].length > 0}}"></view>
+    </view>
+  </view>
+
+  <!-- ===== 课程列表 ===== -->
+  <view class="schedule-body">
+    <block wx:if="{{courses[selectedDay] && courses[selectedDay].length > 0}}">
+      <view class="timeline">
+        <view class="timeline-item" wx:for="{{courses[selectedDay]}}" wx:key="id">
+          <!-- 时间轴节点 -->
+          <view class="timeline-node" style="border-color: {{item.color}};">
+            <view class="node-dot" style="background: {{item.color}};"></view>
+          </view>
+          <!-- 连接线 -->
+          <view class="timeline-line" wx:if="{{index < courses[selectedDay].length - 1}}"></view>
+          <!-- 课程卡 -->
+          <view class="schedule-card" style="border-left: 6rpx solid {{item.color}};">
+            <view class="sc-header flex-row justify-between">
+              <text class="sc-name font-md font-bold text-main">{{item.name}}</text>
+              <view class="sc-time-badge flex-center" style="background: {{item.color}}20; color: {{item.color}};">
+                <text class="font-num font-xs font-bold">{{item.startTime}}</text>
+              </view>
+            </view>
+            <view class="sc-footer flex-row gap-md" style="margin-top: 12rpx;">
+              <text class="font-xs text-secondary">📍 {{item.room}}</text>
+              <text class="font-xs text-secondary">👤 {{item.teacher}}</text>
+              <text class="font-xs text-hint">{{item.startTime}} - {{item.endTime}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-day flex-col flex-center">
+      <text style="font-size: 100rpx; margin-bottom: 24rpx;">😴</text>
+      <text class="font-md text-secondary" style="font-weight: 500;">今天没有课哦</text>
+      <text class="font-xs text-hint" style="margin-top: 8rpx;">好好享受休息时光吧</text>
+    </view>
+  </view>
+</view>

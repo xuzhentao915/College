@@ -1,0 +1,14 @@
+# 微信小程序忽略文件
+node_modules/
+project.private.config.json
+.DS_Store
+dist/
+unpackage/
+.temp/
+
+# 操作系统文件
+Thumbs.db
+db.lock
+*.bak
+*.tmp
+*.swp

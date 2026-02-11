@@ -1,0 +1,54 @@
+/* components/card/card.wxss */
+
+.card {
+  background: var(--bg-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neu-shadow-out);
+  margin: var(--spacing-sm) 0;
+  border: 1rpx solid rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-padding {
+  padding: var(--spacing-md);
+}
+
+.card-hover:active {
+  transform: scale(0.985);
+  box-shadow: var(--neu-shadow-in);
+  border-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.15s ease;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-main);
+  position: relative;
+  padding-left: 24rpx;
+}
+
+.card-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 28rpx;
+  background: var(--primary-gradient);
+  border-radius: 3rpx;
+}
+
+.card-content {
+  color: var(--text-regular);
+  font-size: 28rpx;
+}
