@@ -1,32 +1,36 @@
-# College - 校园助手小程序 🎓
+# College - 校园助手小程序 (Premium Edition) 🎓
 
-[![Platform](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-5B8CFF?style=flat-square&logo=wechat)](https://mp.weixin.qq.com/)
-[![Renderer](https://img.shields.io/badge/Renderer-Skyline-764BA2?style=flat-square)](https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/skyline/introduction.html)
-[![Style](https://img.shields.io/badge/Style-Neu--morphism-E4EAF0?style=flat-square)](https://github.com/Mortal915/College)
+[![Platform](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-3B82F6?style=for-the-badge&logo=wechat)](https://mp.weixin.qq.com/)
+[![Renderer](https://img.shields.io/badge/Renderer-Skyline-8B5CF6?style=for-the-badge)](https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/skyline/introduction.html)
+[![UI Style](https://img.shields.io/badge/UI-Modern%20Glass-F1F5F9?style=for-the-badge)](https://github.com/Mortal915/College)
 
-这是一款专为大学生打造的轻量级校园助手小程序。采用微信最新的 **Skyline 渲染引擎** 开发，拥有极致的流畅度与现代化的**新拟态 (Neu-morphism)** 视觉设计。
+这是一款专为大学生设计的现代化校园助手小程序。项目经过深度重构，现已进化为 **Premium Edition**，不仅拥有极致的视觉美感，更在性能和跨平台适配上达到了商业级标准。
 
-## ✨ 项目亮点
+## 🌟 核心进化
 
-*   🚀 **高性能渲染**：全面启用 Skyline 渲染引擎，支持更复杂的动画与手势交互。
-*   🎨 **精致视觉**：深度定制的新拟态 UI 体系，柔和的光影质感，极具现代感。
-*   📊 **数据看板**：
-    *   **今日课表**：智能提醒当日课程及教室。
-    *   **GPA 管理**：自动计算学期绩点，成绩分布一目了然。
-*   🛠️ **极客工具**：内置 Python 脚本算法生成 TabBar 图标，追求零资源浪费。
+### 1. 现代视觉体系 (Visual Design)
+*   **玻璃拟态 (Glass-morphism)**：大量运用毛玻璃背景与柔和阴影，营造出轻盈、通透的层次感。
+*   **线性简约图标 (Linear Icons)**：全量采用 3px 笔触的线性风格图标，视觉统一性极高，涵盖从 TabBar 到功能菜单的所有入口。
+*   **高级配色方案**：基于 Slate Gray 与 Primary Blue 的学术风配色，专业且不失动感。
 
-## 📸 功能模块
+### 2. 全机型深度适配 (Platform Adaptation)
+*   **智能导航栏**：自研 `navigation-bar` 组件，动态计算 iOS 状态栏与 Android 胶囊按钮位置，确保在灵动岛、打孔屏等各种异形屏下均能完美呈现。
+*   **安全区域优化**：完美处理 iPhone Home Indicator 底部安全区，防止内容遮挡。
 
-- **首页 (Home)**: 实时时间问候、功能快捷入口、今日课程概览、校园通知。
-- **课表 (Schedule)**: 交互式周课表，支持日期自动切换，清晰的时间轴布局。
-- **成绩 (Grade)**: 历史成绩查询、GPA 仪表盘、成绩自动着色（优良及格识别）。
-- **我的 (User)**: 个人信息展示、功能菜单导航。
+### 3. Skyline 极致性能
+*   **原生级流畅**：全面适配微信最新的 Skyline 渲染引擎，摆脱 WebView 限制，拥有更接近原生的滑动动画与手势交互。
+*   **局部滚动优化**：在成绩看板等复杂页面实现固定头部+局部滚动的平滑体验。
 
-## 🛠️ 技术细节
+## 📸 模块概览
 
-- **渲染引擎**: Skyline (Glass-Easel 组件框架)
-- **样式变量**: 全局 CSS 变量控制，支持秒级换肤。
-- **图标方案**: `scripts/gen_icons.py` (Python 算法生成) + SVG Data URI。
+- **首页 (Home)**：智能时段问候、多维状态看板、线性快捷入口。
+- **课表 (Schedule)**：动态时间轴布局，支持按星期筛选，自动定位今日行程。
+- **成绩 (Grade)**：GPA 视觉仪表盘，支持学期切换，成绩单智能着色管理。
+- **我的 (User)**：悬浮个人名片，分类功能菜单，全图标化视觉引导。
+
+## 🛠️ 极客精神
+
+项目内置了 `scripts/gen_icons.py` 图标生成引擎。通过 Python 算法直接生成全套线性 PNG 图标，确保资产高度可控、笔触绝对统一。
 
 ## 🚀 快速开始
 
@@ -35,12 +39,8 @@
    git clone https://github.com/Mortal915/College.git
    ```
 2. **导入开发者工具**:
-   - 打开“微信开发者工具”。
    - 选择“导入项目”，目录指向 `College` 文件夹。
-   - 确保 `project.config.json` 中的 `renderer` 为 `skyline`。
-
-## 📄 开源协议
-[MIT License](LICENSE)
+   - 确保 AppID 已正确配置，且 **“使用 Skyline 渲染引擎”** 已勾选。
 
 ---
-*Created with ❤️ by Mortal915*
+*Developed with Modern Standards by Mortal915*
