@@ -1,10 +1,11 @@
 .grade-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100vh; /* 保持视口高度 */
   padding: 0 32rpx;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
 
 /* 顶部 GPA 卡片区域固定 */

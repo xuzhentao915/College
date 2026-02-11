@@ -16,12 +16,19 @@ App({
     this.globalData.statusBarHeight = info.statusBarHeight;
     
     // 2. 获取胶囊信息 (仅小程序)
-    const menuButton = wx.getMenuButtonBoundingClientRect();
+    let menuButton = { top: 0, height: 32, left: 0 };
+    try {
+      menuButton = wx.getMenuButtonBoundingClientRect();
+    } catch (e) {
+      console.error('获取胶囊信息失败', e);
+    }
     this.globalData.menuButtonInfo = menuButton;
 
-    // 3. 计算自定义导航栏高度
-    // 公式：导航栏高度 = 状态栏高度 + (胶囊距离顶部距离 - 状态栏高度) * 2 + 胶囊高度
-    this.globalData.navHeight = info.statusBarHeight + (menuButton.top - info.statusBarHeight) * 2 + menuButton.height;
+    // 3. 计算自定义导航栏高度 (容错处理)
+    const statusBarHeight = info.statusBarHeight || 20;
+    const top = menuButton.top || (statusBarHeight + 4);
+    const height = menuButton.height || 32;
+    this.globalData.navHeight = statusBarHeight + (top - statusBarHeight) * 2 + height;
 
     // 4. 计算底部安全距离 (iOS 底部横条)
     this.globalData.safeAreaBottom = info.screenHeight - info.safeArea.bottom;
