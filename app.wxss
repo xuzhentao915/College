@@ -1,108 +1,108 @@
 page {
-  /* ===== 色彩体系 - 新拟态精致版 ===== */
-  --primary-color: #5B8CFF;
-  --primary-light: #8CB4FF;
-  --primary-gradient: linear-gradient(135deg, #8CB4FF 0%, #5B8CFF 100%);
-  --accent-gradient: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-  --success-color: #52C41A;
-  --warning-color: #FAAD14;
-  --danger-color: #FF4D4F;
+  /* ===== 核心色彩 - Premium Academic ===== */
+  --primary: #3B82F6;
+  --primary-light: #EFF6FF;
+  --primary-gradient: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  --accent: #8B5CF6;
+  
+  /* 辅助状态色 */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
 
-  /* 文字色彩 */
-  --text-main: #1A2233;
-  --text-regular: #4A5568;
-  --text-secondary: #8E99A4;
-  --text-hint: #B8C0CC;
+  /* 文字体系 (Slate Grays) */
+  --text-900: #0F172A; /* 标题 */
+  --text-700: #334155; /* 正文 */
+  --text-500: #64748B; /* 次要 */
+  --text-300: #94A3B8; /* 提示 */
 
-  /* 新拟态底色 */
-  --bg-color: #E4EAF0;
-  --bg-light: #ECF0F5;
-  --true-white: #FFFFFF;
+  /* 背景与卡片 */
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.8);
 
-  /* 分割线 */
-  --divider-color: rgba(163, 177, 198, 0.12);
+  /* 边框与阴影 */
+  --border-light: #F1F5F9;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -2px rgba(0,0,0,0.02);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-primary: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
 
-  /* 间距 */
-  --spacing-xs: 12rpx;
-  --spacing-sm: 20rpx;
-  --spacing-md: 32rpx;
-  --spacing-lg: 48rpx;
-  --spacing-xl: 64rpx;
-
-  /* 圆角 */
-  --radius-xs: 12rpx;
-  --radius-sm: 16rpx;
-  --radius-md: 24rpx;
-  --radius-lg: 36rpx;
+  /* 几何规范 */
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 32rpx;
   --radius-xl: 48rpx;
-  --radius-full: 9999rpx;
+  --radius-full: 999rpx;
 
-  /* ===== 新拟态阴影体系 ===== */
-  --neu-shadow-out:
-    10rpx 10rpx 20rpx rgba(163, 177, 198, 0.5),
-    -10rpx -10rpx 20rpx rgba(255, 255, 255, 0.75);
-
-  --neu-shadow-in:
-    inset 8rpx 8rpx 16rpx rgba(163, 177, 198, 0.45),
-    inset -8rpx -8rpx 16rpx rgba(255, 255, 255, 0.75);
-
-  --neu-shadow-sm:
-    5rpx 5rpx 10rpx rgba(163, 177, 198, 0.4),
-    -5rpx -5rpx 10rpx rgba(255, 255, 255, 0.75);
-
-  --neu-shadow-lg:
-    16rpx 16rpx 32rpx rgba(163, 177, 198, 0.5),
-    -16rpx -16rpx 32rpx rgba(255, 255, 255, 0.75);
-
-  /* 悬浮阴影 - 用于特殊强调元素 */
-  --neu-shadow-float:
-    0 20rpx 40rpx rgba(91, 140, 255, 0.15),
-    10rpx 10rpx 20rpx rgba(163, 177, 198, 0.3),
-    -10rpx -10rpx 20rpx rgba(255, 255, 255, 0.75);
-
-  background-color: var(--bg-color);
-  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
-    'Helvetica Neue', Helvetica, 'Microsoft Yahei', sans-serif;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-700);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', sans-serif;
+  line-height: 1.5;
 }
 
-/* ===== 容器 ===== */
-.container {
-  padding: var(--spacing-md);
-  box-sizing: border-box;
+/* ===== 全局排版工具类 ===== */
+.font-num { font-family: 'DIN Alternate', 'Inter', sans-serif; }
+.font-bold { font-weight: 700; }
+.title-xl { font-size: 48rpx; color: var(--text-900); letter-spacing: -1rpx; }
+.title-lg { font-size: 36rpx; color: var(--text-900); }
+.text-md { font-size: 28rpx; }
+.text-sm { font-size: 24rpx; }
+.text-xs { font-size: 20rpx; }
+
+/* ===== 通用容器 ===== */
+.page-container {
+  padding: 32rpx;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
-/* ===== 文字工具类 ===== */
-.text-primary { color: var(--primary-color); }
-.text-success { color: var(--success-color); }
-.text-warning { color: var(--warning-color); }
-.text-danger { color: var(--danger-color); }
-.text-main { color: var(--text-main); }
-.text-regular { color: var(--text-regular); }
-.text-secondary { color: var(--text-secondary); }
-.text-hint { color: var(--text-hint); }
-.text-white { color: var(--true-white); }
-
-.font-num { font-family: 'DIN Alternate', 'Roboto Mono', 'SF Mono', monospace; letter-spacing: 1rpx; }
-.font-bold { font-weight: 600; }
-.font-xl { font-size: 44rpx; }
-.font-lg { font-size: 34rpx; }
-.font-md { font-size: 28rpx; }
-.font-sm { font-size: 24rpx; }
-.font-xs { font-size: 20rpx; }
+.glass-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
 
 /* ===== 布局工具类 ===== */
-.flex-row { display: flex; flex-direction: row; align-items: center; }
+.flex-row { display: flex; align-items: center; }
 .flex-col { display: flex; flex-direction: column; }
 .flex-center { display: flex; justify-content: center; align-items: center; }
-.flex-1 { flex: 1; }
-.flex-wrap { flex-wrap: wrap; }
 .justify-between { justify-content: space-between; }
-.justify-end { justify-content: flex-end; }
-.align-start { align-items: flex-start; }
-.gap-xs { gap: var(--spacing-xs); }
-.gap-sm { gap: var(--spacing-sm); }
-.gap-md { gap: var(--spacing-md); }
+.gap-8 { gap: 8rpx; }
+.gap-16 { gap: 16rpx; }
+.gap-24 { gap: 24rpx; }
+
+/* ===== 移动端安全适配 ===== */
+/* 顶部导航占位 */
+.nav-placeholder {
+  width: 100%;
+  pointer-events: none;
+}
+
+/* 底部安全区 (iPhone Home Indicator) */
+.safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 针对 Android 和 iOS 的微调 */
+.platform-ios .font-bold { font-weight: 600; }
+.platform-android .font-bold { font-weight: 700; }
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* 玻璃拟态全局增强 */
+.glass-effect {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+
+

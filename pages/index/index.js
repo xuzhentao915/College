@@ -2,6 +2,7 @@
 
 Page({
     data: {
+        navHeight: 0,
         currentDate: '',
         greeting: '',
         todayCourses: [
@@ -17,6 +18,10 @@ Page({
     },
 
     onLoad() {
+        const app = getApp();
+        this.setData({
+            navHeight: app.globalData.navHeight
+        });
         this.updateDateTime();
     },
 

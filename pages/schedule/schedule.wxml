@@ -1,6 +1,9 @@
-<view class="container schedule-container">
-  <!-- ===== 星期选择器 (Fixed) ===== -->
-  <view class="week-bar">
+<view class="page-container schedule-container">
+  <!-- 动态顶部适配 -->
+  <view style="height: {{navHeight}}px; width: 100%;"></view>
+
+  <!-- ===== 星期选择器 ===== -->
+  <view class="week-bar" style="top: {{navHeight + 10}}px;">
     <view
       class="week-item {{selectedDay === index ? 'week-active' : ''}}"
       wx:for="{{weekDays}}"
@@ -12,40 +15,53 @@
     </view>
   </view>
 
-  <!-- ===== 课程列表 ===== -->
+  <!-- ===== 课程列表内容 ===== -->
   <view class="schedule-body">
     <block wx:if="{{courses[selectedDay] && courses[selectedDay].length > 0}}">
       <view class="timeline">
         <view class="timeline-item" wx:for="{{courses[selectedDay]}}" wx:key="id">
           <!-- 时间轴节点 -->
           <view class="timeline-node" style="border-color: {{item.color}};">
-            <view class="node-dot" style="background: {{item.color}};"></view>
+            <view class="node-inner" style="background: {{item.color}};"></view>
           </view>
-          <!-- 连接线 -->
-          <view class="timeline-line" wx:if="{{index < courses[selectedDay].length - 1}}"></view>
-          <!-- 课程卡 -->
-          <view class="schedule-card" style="border-left: 6rpx solid {{item.color}};">
+          
+          <!-- 课程详情卡片 -->
+          <view class="schedule-card" style="border-top: 8rpx solid {{item.color}};">
             <view class="sc-header flex-row justify-between">
-              <text class="sc-name font-md font-bold text-main">{{item.name}}</text>
-              <view class="sc-time-badge flex-center" style="background: {{item.color}}20; color: {{item.color}};">
-                <text class="font-num font-xs font-bold">{{item.startTime}}</text>
+              <view style="flex: 1; margin-right: 20rpx;">
+                <text class="sc-name">{{item.name}}</text>
+              </view>
+              <view class="sc-time-badge font-num" style="background: {{item.color}}15; color: {{item.color}};">
+                {{item.startTime}}
               </view>
             </view>
-            <view class="sc-footer flex-row gap-md" style="margin-top: 12rpx;">
-              <text class="font-xs text-secondary">📍 {{item.room}}</text>
-              <text class="font-xs text-secondary">👤 {{item.teacher}}</text>
-              <text class="font-xs text-hint">{{item.startTime}} - {{item.endTime}}</text>
+            
+            <view class="sc-footer">
+              <view class="info-item">
+                <text class="info-icon">📍</text>
+                <text>{{item.room}}</text>
+              </view>
+              <view class="info-item">
+                <text class="info-icon">👤</text>
+                <text>{{item.teacher}}</text>
+              </view>
+              <view class="info-item">
+                <text class="info-icon">🕒</text>
+                <text class="font-num">{{item.startTime}} - {{item.endTime}}</text>
+              </view>
             </view>
           </view>
         </view>
       </view>
     </block>
 
-    <!-- 空状态 -->
+    <!-- 休息日状态 -->
     <view wx:else class="empty-day flex-col flex-center">
-      <text style="font-size: 100rpx; margin-bottom: 24rpx;">😴</text>
-      <text class="font-md text-secondary" style="font-weight: 500;">今天没有课哦</text>
-      <text class="font-xs text-hint" style="margin-top: 8rpx;">好好享受休息时光吧</text>
+      <text class="empty-emoji">🥤</text>
+      <text class="title-lg font-bold">没有课的时光</text>
+      <text class="text-md" style="color: var(--text-500); margin-top: 12rpx;">适合去图书馆或者喝杯奶茶</text>
     </view>
   </view>
+  
+  <view style="height: 40rpx;"></view>
 </view>

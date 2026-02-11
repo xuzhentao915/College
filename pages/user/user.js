@@ -1,6 +1,15 @@
 // pages/user/user.js
 
 Page({
+    data: {
+        navHeight: 0
+    },
+
+    onLoad() {
+        const app = getApp();
+        this.setData({ navHeight: app.globalData.navHeight });
+    },
+
     handleTap(e) {
         const action = e.currentTarget.dataset.action;
 

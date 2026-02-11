@@ -2,6 +2,7 @@
 
 Page({
     data: {
+        navHeight: 0,
         weekDays: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
         selectedDay: 0,
         courses: {
@@ -29,6 +30,8 @@ Page({
     },
 
     onLoad() {
+        const app = getApp();
+        this.setData({ navHeight: app.globalData.navHeight });
         this._autoSelectToday();
     },
 

@@ -2,6 +2,7 @@
 
 Page({
     data: {
+        navHeight: 0,
         semesters: ['2023-2024 第一学期', '2022-2023 第二学期', '2022-2023 第一学期'],
         index: 0,
         gpa: '3.82',
@@ -12,6 +13,11 @@ Page({
             { id: 4, name: '物理实验', type: '实验', credit: 1.5, score: 85, point: 3.3 },
             { id: 5, name: '中国近代史纲要', type: '通识', credit: 2.0, score: 78, point: 2.7 }
         ]
+    },
+
+    onLoad() {
+        const app = getApp();
+        this.setData({ navHeight: app.globalData.navHeight });
     },
 
     bindPickerChange(e) {

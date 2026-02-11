@@ -1,11 +1,14 @@
-<view class="container home-container">
-  <!-- ===== 顶部问候区 ===== -->
+<view class="page-container home-container">
+  <!-- 动态顶部适配 -->
+  <view style="height: {{navHeight}}px; width: 100%;"></view>
+  
+  <!-- ===== 顶部英雄区 ===== -->
   <view class="hero-section">
     <view class="hero-content">
       <view class="hero-greeting">
-        <text class="greeting-label font-sm text-secondary">{{currentDate}}</text>
+        <text class="greeting-label font-num">{{currentDate}}</text>
         <view class="greeting-main">
-          <text class="greeting-text">{{greeting}}，</text>
+          <text class="greeting-text">{{greeting}}</text>
           <text class="greeting-name">同学</text>
         </view>
       </view>
@@ -15,39 +18,54 @@
     </view>
   </view>
 
-  <!-- ===== 快捷入口 ===== -->
-  <view class="section-title">
-    <text class="title-text font-md font-bold text-main">快捷入口</text>
+  <!-- ===== 状态看板 ===== -->
+  <view class="status-grid">
+    <view class="status-card" bindtap="navigateTo" data-url="/pages/grade/grade">
+      <text class="status-label">当前绩点</text>
+      <view>
+        <text class="status-value font-num">3.82</text>
+        <text class="status-unit">GPA</text>
+      </view>
+    </view>
+    <view class="status-card">
+      <text class="status-label">本周课程</text>
+      <view>
+        <text class="status-value font-num">12</text>
+        <text class="status-unit">节</text>
+      </view>
+    </view>
   </view>
+
+  <!-- ===== 快捷入口 ===== -->
   <view class="quick-actions">
     <view class="action-item" bindtap="navigateTo" data-url="/pages/schedule/schedule">
       <view class="action-icon-wrap">
-        <view class="action-icon" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
-          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z'/%3E%3C/svg%3E" style="width: 40rpx; height: 40rpx;"></image>
+        <view class="action-icon" style="background: #E0F2FE;">
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230EA5E9'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z'/%3E%3C/svg%3E" style="width: 44rpx; height: 44rpx;"></image>
         </view>
       </view>
       <text class="action-label">课表</text>
     </view>
     <view class="action-item" bindtap="navigateTo" data-url="/pages/grade/grade">
       <view class="action-icon-wrap">
-        <view class="action-icon" style="background: linear-gradient(135deg, #F093FB, #F5576C);">
-          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E" style="width: 40rpx; height: 40rpx;"></image>
+        <view class="action-icon" style="background: #FEE2E2;">
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23EF4444'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E" style="width: 44rpx; height: 44rpx;"></image>
         </view>
       </view>
       <text class="action-label">成绩</text>
     </view>
     <view class="action-item">
       <view class="action-icon-wrap">
-        <view class="action-icon" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">
-          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/%3E%3C/svg%3E" style="width: 40rpx; height: 40rpx;"></image>
+        <view class="action-icon" style="background: #F0FDF4;">
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2322C55E'%3E%3Cpath d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/%3E%3C/svg%3E" style="width: 44rpx; height: 44rpx;"></image>
         </view>
       </view>
       <text class="action-label">考试</text>
     </view>
     <view class="action-item">
       <view class="action-icon-wrap">
-        <view class="action-icon" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">
-          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z'/%3E%3C/svg%3E" style="width: 40rpx; height: 40rpx;"></image>
+        <view class="action-icon" style="background: #FAF5FF;">
+          <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A855F7'%3E%3Cpath d='M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z'/%3E%3C/svg%3E" style="width: 44rpx; height: 44rpx;"></image>
         </view>
       </view>
       <text class="action-label">更多</text>
@@ -55,40 +73,31 @@
   </view>
 
   <!-- ===== 今日课程 ===== -->
-  <view class="section-title" style="margin-top: 16rpx;">
-    <text class="title-text font-md font-bold text-main">今日课程</text>
-    <text class="title-count font-xs text-hint">{{todayCourses.length}} 节</text>
+  <view class="section-header">
+    <text class="title-text">今日课程</text>
+    <text class="title-action" bindtap="navigateTo" data-url="/pages/schedule/schedule">全部课表</text>
   </view>
+  
   <view wx:if="{{todayCourses.length > 0}}" class="today-courses">
-    <view class="course-row" wx:for="{{todayCourses}}" wx:key="id">
-      <view class="course-time-pill flex-center">
-        <text class="font-num font-bold font-xs">{{item.time}}</text>
+    <view class="course-card" wx:for="{{todayCourses}}" wx:key="id" style="border-left-color: {{index % 2 === 0 ? 'var(--primary)' : 'var(--accent)'}}">
+      <view class="course-time-box">
+        <text class="time-start font-num">{{item.time}}</text>
+        <text class="time-label">START</text>
       </view>
-      <view class="course-body">
-        <text class="course-name font-md font-bold text-main">{{item.name}}</text>
-        <text class="course-meta font-xs text-secondary">📍 {{item.room}}</text>
-      </view>
-    </view>
-  </view>
-  <view wx:else class="empty-box flex-col flex-center">
-    <text style="font-size: 80rpx; margin-bottom: 16rpx;">🎉</text>
-    <text class="text-secondary font-sm">今天没有课，好好休息吧~</text>
-  </view>
-
-  <!-- ===== 校园公告 ===== -->
-  <view class="section-title">
-    <text class="title-text font-md font-bold text-main">校园公告</text>
-  </view>
-  <card hover="{{true}}">
-    <view class="notice-list">
-      <view class="notice-row" wx:for="{{notices}}" wx:key="id">
-        <view class="notice-dot" style="background: {{index === 0 ? 'var(--danger-color)' : 'var(--text-hint)'}}"></view>
-        <text class="notice-title flex-1 font-sm text-main">{{item.title}}</text>
-        <text class="notice-date font-num font-xs text-hint">{{item.date}}</text>
+      <view class="course-info">
+        <text class="course-name">{{item.name}}</text>
+        <view class="course-meta">
+          <text>📍 {{item.room}}</text>
+          <text>•</text>
+          <text>第 {{index + 1}} 大节</text>
+        </view>
       </view>
     </view>
-  </card>
+  </view>
+  <view wx:else class="empty-box flex-col flex-center" style="padding: 60rpx 0;">
+    <image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23CBD5E1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z'/%3E%3C/svg%3E" style="width: 120rpx; height: 120rpx; margin-bottom: 24rpx;"></image>
+    <text class="text-sm" style="color: var(--text-300);">今天暂时没有课程安排</text>
+  </view>
 
-  <!-- 底部安全距离 -->
-  <view style="height: 40rpx;"></view>
+  <view style="height: 60rpx;"></view>
 </view>

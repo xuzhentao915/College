@@ -1,68 +1,58 @@
-<view class="user-page">
-  <!-- ===== 个人信息卡 ===== -->
+<view class="page-container user-page">
+  <!-- 动态顶部适配 -->
+  <view style="height: {{navHeight}}px; width: 100%;"></view>
+
+  <!-- ===== 个人名片卡 ===== -->
   <view class="profile-card">
-    <view class="profile-main flex-row">
-      <view class="profile-avatar flex-center">
-        <text class="avatar-initial">李</text>
-      </view>
-      <view class="profile-info flex-col">
-        <text class="profile-name font-xl font-bold text-main">李同学</text>
-        <text class="profile-id font-num font-xs text-hint" style="margin-top: 6rpx;">学号 20230001</text>
-        <view class="profile-badge" style="margin-top: 12rpx;">
-          <text class="font-xs">计算机科学与技术</text>
-        </view>
+    <view class="profile-avatar flex-center">
+      <text class="avatar-initial">李</text>
+    </view>
+    <view class="profile-info">
+      <text class="profile-name">李同学</text>
+      <text class="profile-id font-num">ID: 20230001</text>
+      <view class="profile-badge">
+        <text class="badge-text">计算机科学与技术</text>
       </view>
     </view>
   </view>
 
-  <!-- ===== 功能菜单 ===== -->
+  <!-- ===== 功能菜单组 ===== -->
   <view class="menu-section">
     <view class="menu-group">
-      <view class="menu-row" bindtap="handleTap" data-action="grades">
-        <view class="menu-icon-box" style="background: linear-gradient(135deg, #F093FB, #F5576C);">
-          <text style="font-size: 28rpx;">⭐</text>
-        </view>
-        <text class="menu-label flex-1 font-md text-main">我的成绩</text>
+      <view class="menu-item" bindtap="handleTap" data-action="grades">
+        <view class="menu-icon-box" style="background: #FEE2E2;">⭐</view>
+        <text class="menu-label">我的成绩</text>
         <view class="menu-arrow"></view>
       </view>
       <view class="menu-divider"></view>
-      <view class="menu-row" bindtap="handleTap" data-action="schedule">
-        <view class="menu-icon-box" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
-          <text style="font-size: 28rpx;">📅</text>
-        </view>
-        <text class="menu-label flex-1 font-md text-main">我的课表</text>
+      <view class="menu-item" bindtap="handleTap" data-action="schedule">
+        <view class="menu-icon-box" style="background: #E0F2FE;">📅</view>
+        <text class="menu-label">我的课表</text>
         <view class="menu-arrow"></view>
       </view>
     </view>
 
     <view class="menu-group">
-      <view class="menu-row" bindtap="handleTap" data-action="about">
-        <view class="menu-icon-box" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">
-          <text style="font-size: 28rpx;">ℹ️</text>
-        </view>
-        <text class="menu-label flex-1 font-md text-main">关于我们</text>
+      <view class="menu-item" bindtap="handleTap" data-action="about">
+        <view class="menu-icon-box" style="background: #F0FDF4;">ℹ️</view>
+        <text class="menu-label">关于我们</text>
         <view class="menu-arrow"></view>
       </view>
       <view class="menu-divider"></view>
-      <view class="menu-row" bindtap="handleTap" data-action="settings">
-        <view class="menu-icon-box" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">
-          <text style="font-size: 28rpx;">⚙️</text>
-        </view>
-        <text class="menu-label flex-1 font-md text-main">系统设置</text>
+      <view class="menu-item" bindtap="handleTap" data-action="settings">
+        <view class="menu-icon-box" style="background: #FAF5FF;">⚙️</view>
+        <text class="menu-label">系统设置</text>
         <view class="menu-arrow"></view>
       </view>
     </view>
   </view>
 
   <!-- ===== 退出按钮 ===== -->
-  <view class="logout-area">
-    <view class="logout-btn flex-center" bindtap="handleTap" data-action="logout">
-      <text class="font-sm text-danger" style="font-weight: 500;">退出登录</text>
-    </view>
+  <view class="logout-btn" bindtap="handleTap" data-action="logout">
+    <text class="logout-text">退出当前账号</text>
   </view>
 
-  <!-- 底部版本号 -->
-  <view class="flex-center" style="padding: var(--spacing-lg) 0;">
-    <text class="font-xs text-hint">College v1.0.0</text>
+  <view class="flex-center" style="padding: 60rpx 0;">
+    <text class="text-xs" style="color: var(--text-300); letter-spacing: 2rpx;">COLLEGE v1.1.0 • PREMIUM EDITION</text>
   </view>
 </view>

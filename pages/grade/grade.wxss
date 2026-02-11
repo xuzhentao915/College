@@ -1,144 +1,152 @@
-/* pages/grade/grade.wxss */
-
 .grade-page {
-  background-color: var(--bg-color);
-  min-height: 100vh;
+  padding-bottom: 60rpx;
 }
 
-/* ===== GPA 英雄区 ===== */
+/* ===== GPA 英雄卡片 ===== */
 .gpa-hero {
-  background: var(--accent-gradient);
-  padding: 160rpx var(--spacing-md) 80rpx;
-  border-bottom-left-radius: 60rpx;
-  border-bottom-right-radius: 60rpx;
+  background: var(--primary-gradient);
+  padding: 60rpx 40rpx;
+  border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
-  /* 柔和的底部投影 */
-  box-shadow: 0 20rpx 60rpx rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-primary);
+  margin-bottom: 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* 学期选择器 */
 .semester-pill {
-  position: absolute;
-  top: 90rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 10rpx 28rpx;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12rpx 32rpx;
   border-radius: var(--radius-full);
-  border: 1rpx solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  margin-bottom: 40rpx;
 }
 
-.picker-arrow {
-  width: 0;
-  height: 0;
-  border-left: 6rpx solid transparent;
-  border-right: 6rpx solid transparent;
-  border-top: 8rpx solid rgba(255, 255, 255, 0.8);
+.picker-inner {
+  font-size: 24rpx;
+  color: white;
+  font-weight: 500;
 }
 
-/* GPA 数字 */
 .gpa-display {
-  position: relative;
-  z-index: 2;
+  text-align: center;
+  z-index: 1;
 }
 
 .gpa-number {
-  font-size: 120rpx;
+  font-size: 100rpx;
   font-weight: 800;
-  color: var(--true-white);
+  color: white;
   line-height: 1;
-  letter-spacing: 4rpx;
-  margin-bottom: 8rpx;
-  /* 微妙的文字阴影 */
-  text-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+  text-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
 }
 
-/* 装饰元素 */
+.gpa-sub {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 16rpx;
+  text-transform: uppercase;
+  letter-spacing: 4rpx;
+}
+
+/* 装饰性背景 */
 .gpa-deco {
   position: absolute;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .gpa-deco-1 {
   width: 300rpx;
   height: 300rpx;
-  top: -80rpx;
-  right: -60rpx;
+  top: -100rpx;
+  right: -100rpx;
 }
 
 .gpa-deco-2 {
   width: 200rpx;
   height: 200rpx;
-  bottom: -40rpx;
-  left: -40rpx;
+  bottom: -50rpx;
+  left: -50rpx;
 }
 
-/* ===== 成绩区 ===== */
-.grade-body {
-  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+/* ===== 成绩列表 ===== */
+.grade-list-header {
+  margin: 0 10rpx 24rpx;
 }
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 成绩卡片 */
 .grade-card {
+  background: var(--bg-card);
+  margin-bottom: 24rpx;
+  padding: 32rpx;
+  border-radius: var(--radius-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--neu-shadow-out);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
-  border: 1rpx solid rgba(255, 255, 255, 0.35);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.grade-card:active {
+  transform: scale(0.98);
 }
 
 .gc-left {
   flex: 1;
 }
 
+.gc-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-900);
+  margin-bottom: 12rpx;
+  display: block;
+}
+
 .gc-tags {
+  display: flex;
   align-items: center;
+  gap: 16rpx;
 }
 
 .gc-tag {
   font-size: 20rpx;
-  color: var(--primary-color);
-  background: rgba(91, 140, 255, 0.1);
-  padding: 4rpx 14rpx;
-  border-radius: var(--radius-full);
-  font-weight: 500;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
 }
 
-/* 分数圆形 Badge */
-.score-circle {
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 50%;
-  font-size: 28rpx;
+.gc-credit {
+  font-size: 22rpx;
+  color: var(--text-300);
 }
 
-.score-high {
-  background: rgba(82, 196, 26, 0.1);
-  color: var(--success-color);
-  box-shadow: inset 0 0 0 3rpx rgba(82, 196, 26, 0.2);
+.gc-right {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
 }
 
-.score-mid {
-  background: rgba(91, 140, 255, 0.1);
-  color: var(--primary-color);
-  box-shadow: inset 0 0 0 3rpx rgba(91, 140, 255, 0.2);
+.score-box {
+  text-align: right;
 }
 
-.score-low {
-  background: rgba(255, 77, 79, 0.1);
-  color: var(--danger-color);
-  box-shadow: inset 0 0 0 3rpx rgba(255, 77, 79, 0.2);
+.score-val {
+  font-size: 44rpx;
+  font-weight: 800;
+}
+
+.score-high { color: var(--success); }
+.score-mid { color: var(--warning); }
+.score-low { color: var(--danger); }
+
+.point-val {
+  font-size: 20rpx;
+  color: var(--text-300);
+  display: block;
 }
