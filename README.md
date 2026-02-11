@@ -1,5 +1,7 @@
 # College - 校园助手小程序 (Premium Edition) 🎓
 
+**简体中文** | [English](./README_EN.md) | [日本語](./README_JP.md) | [繁體中文](./README_ZHT.md)
+
 [![Platform](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-3B82F6?style=for-the-badge&logo=wechat)](https://mp.weixin.qq.com/)
 [![Renderer](https://img.shields.io/badge/Renderer-Skyline-8B5CF6?style=for-the-badge)](https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/skyline/introduction.html)
 [![UI Style](https://img.shields.io/badge/UI-Modern%20Glass-F1F5F9?style=for-the-badge)](https://github.com/xuzhentao915/College)
