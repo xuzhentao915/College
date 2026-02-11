@@ -1,39 +1,39 @@
 <view class="page-container grade-page">
-  <!-- 动态顶部适配 -->
+  <!-- 动态顶部适配 (固定) -->
   <view style="height: {{navHeight}}px; width: 100%; flex-shrink: 0;"></view>
 
-  <!-- 使用 scroll-view 包裹可滚动内容 -->
-  <scroll-view scroll-y class="grade-scroll-area" enhanced show-scrollbar="{{false}}">
-    <!-- ===== GPA 头部看板 ===== -->
-    <view class="gpa-hero-wrap">
-      <view class="gpa-hero">
-        <view class="semester-pill">
-          <picker bindchange="bindPickerChange" value="{{index}}" range="{{semesters}}">
-            <view class="picker-inner flex-row gap-8">
-              <text>{{semesters[index]}}</text>
-              <text style="font-size: 18rpx;">▼</text>
-            </view>
-          </picker>
-        </view>
-        
-        <view class="gpa-display">
-          <text class="gpa-number font-num">{{gpa}}</text>
-          <view class="gpa-sub font-bold">AVG GPA</view>
-        </view>
-        
-        <!-- 装饰球 -->
-        <view class="gpa-deco gpa-deco-1"></view>
-        <view class="gpa-deco gpa-deco-2"></view>
+  <!-- ===== GPA 头部看板 (固定) ===== -->
+  <view class="gpa-hero-wrap">
+    <view class="gpa-hero">
+      <view class="semester-pill">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{semesters}}">
+          <view class="picker-inner flex-row gap-8">
+            <text>{{semesters[index]}}</text>
+            <text style="font-size: 18rpx;">▼</text>
+          </view>
+        </picker>
       </view>
+      
+      <view class="gpa-display">
+        <text class="gpa-number font-num">{{gpa}}</text>
+        <view class="gpa-sub font-bold">AVG GPA</view>
+      </view>
+      
+      <!-- 装饰球 -->
+      <view class="gpa-deco gpa-deco-1"></view>
+      <view class="gpa-deco gpa-deco-2"></view>
     </view>
+  </view>
 
-    <!-- ===== 成绩明细列表 ===== -->
-    <view class="grade-body">
-      <view class="grade-list-header flex-row justify-between">
-        <text class="title-text">成绩清单</text>
-        <text class="text-xs" style="color: var(--text-300);">共 {{grades.length}} 门课程</text>
-      </view>
+  <!-- 列表标题 (固定) -->
+  <view class="grade-list-header flex-row justify-between">
+    <text class="title-text">成绩清单</text>
+    <text class="text-xs" style="color: var(--text-300);">共 {{grades.length}} 门课程</text>
+  </view>
 
+  <!-- ===== 成绩明细列表 (可滚动) ===== -->
+  <scroll-view scroll-y class="grade-scroll-area" enhanced show-scrollbar="{{false}}">
+    <view class="grade-list-inner">
       <view class="grade-card" wx:for="{{grades}}" wx:key="id">
         <view class="gc-left">
           <text class="gc-name">{{item.name}}</text>
@@ -50,8 +50,8 @@
           </view>
         </view>
       </view>
+      <!-- 列表底部留白 -->
+      <view style="height: 40rpx;"></view>
     </view>
-    
-    <view style="height: 60rpx;"></view>
   </scroll-view>
 </view>
