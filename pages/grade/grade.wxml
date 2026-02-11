@@ -1,5 +1,8 @@
 <view class="page-container grade-page">
-  <!-- 动态顶部适配 (固定) -->
+  <!-- 自定义导航栏 -->
+  <navigation-bar title="我的成绩" iconType="grade"></navigation-bar>
+
+  <!-- 动态顶部占位 (保持布局) -->
   <view style="height: {{navHeight}}px; width: 100%; flex-shrink: 0;"></view>
 
   <!-- ===== GPA 头部看板 (固定) ===== -->

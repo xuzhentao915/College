@@ -20,13 +20,17 @@
   <view class="menu-section">
     <view class="menu-group">
       <view class="menu-item" bindtap="handleTap" data-action="grades">
-        <view class="menu-icon-box" style="background: #FEE2E2;">⭐</view>
+        <view class="menu-icon-box" style="background: #FEE2E2;">
+          <image src="/images/tabbar/grade_active.png" style="width: 40rpx; height: 40rpx;"></image>
+        </view>
         <text class="menu-label">我的成绩</text>
         <view class="menu-arrow"></view>
       </view>
       <view class="menu-divider"></view>
       <view class="menu-item" bindtap="handleTap" data-action="schedule">
-        <view class="menu-icon-box" style="background: #E0F2FE;">📅</view>
+        <view class="menu-icon-box" style="background: #E0F2FE;">
+          <image src="/images/tabbar/schedule_active.png" style="width: 40rpx; height: 40rpx;"></image>
+        </view>
         <text class="menu-label">我的课表</text>
         <view class="menu-arrow"></view>
       </view>
@@ -34,13 +38,17 @@
 
     <view class="menu-group">
       <view class="menu-item" bindtap="handleTap" data-action="about">
-        <view class="menu-icon-box" style="background: #F0FDF4;">ℹ️</view>
+        <view class="menu-icon-box" style="background: #F0FDF4;">
+          <image src="/images/tabbar/info_active.png" style="width: 40rpx; height: 40rpx;"></image>
+        </view>
         <text class="menu-label">关于我们</text>
         <view class="menu-arrow"></view>
       </view>
       <view class="menu-divider"></view>
       <view class="menu-item" bindtap="handleTap" data-action="settings">
-        <view class="menu-icon-box" style="background: #FAF5FF;">⚙️</view>
+        <view class="menu-icon-box" style="background: #FAF5FF;">
+          <image src="/images/tabbar/settings_active.png" style="width: 40rpx; height: 40rpx;"></image>
+        </view>
         <text class="menu-label">系统设置</text>
         <view class="menu-arrow"></view>
       </view>

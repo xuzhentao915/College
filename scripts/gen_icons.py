@@ -84,9 +84,63 @@ def draw_user(color):
         if 0 <= int(y) < SIZE: p[int(y)][x] = color
     return p
 
+def draw_back(color):
+    p = make_blank()
+    draw_line(p, 45, 25, 30, 40, 4, color)
+    draw_line(p, 30, 40, 45, 55, 4, color)
+    return p
+
+def draw_exam(color):
+    p = make_blank()
+    # 文件大框
+    draw_stroke_rect(p, 22, 20, 58, 65, 4, 3, color)
+    # 内部横线 (模拟文字)
+    draw_line(p, 32, 35, 48, 35, 3, color)
+    draw_line(p, 32, 48, 48, 48, 3, color)
+    # 勾选框
+    draw_line(p, 30, 20, 50, 20, 3, color)
+    return p
+
+def draw_more(color):
+    p = make_blank()
+    def dot(cx, cy):
+        for y in range(SIZE):
+            for x in range(SIZE):
+                if math.sqrt((x-cx)**2 + (y-cy)**2) <= 5: p[y][x] = color
+    dot(30, 30); dot(50, 30); dot(30, 50); dot(50, 50)
+    return p
+
+def draw_info(color):
+    p = make_blank()
+    draw_line(p, 40, 30, 40, 30, 4, color) # i 的点
+    draw_line(p, 40, 40, 40, 60, 3, color) # i 的身
+    draw_stroke_rect(p, 20, 20, 60, 60, 20, 3, color) # 圆圈
+    return p
+
+def draw_settings(color):
+    p = make_blank()
+    draw_stroke_rect(p, 30, 30, 50, 50, 10, 3, color) # 中心圆
+    # 齿轮齿 (简化)
+    for i in range(8):
+        angle = i * (math.pi / 4)
+        x1, y1 = 40 + 15*math.cos(angle), 40 + 15*math.sin(angle)
+        x2, y2 = 40 + 25*math.cos(angle), 40 + 25*math.sin(angle)
+        draw_line(p, x1, y1, x2, y2, 4, color)
+    return p
+
 out_dir = 'images/tabbar'
 os.makedirs(out_dir, exist_ok=True)
-icons = {'home': draw_home, 'schedule': draw_schedule, 'grade': draw_grade, 'user': draw_user}
+icons = {
+    'home': draw_home, 
+    'schedule': draw_schedule, 
+    'grade': draw_grade, 
+    'user': draw_user,
+    'back': draw_back,
+    'exam': draw_exam,
+    'more': draw_more,
+    'info': draw_info,
+    'settings': draw_settings
+}
 
 for name, func in icons.items():
     for suffix, color in [('', GRAY), ('_active', BLUE)]:
